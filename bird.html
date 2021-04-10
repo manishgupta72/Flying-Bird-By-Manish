@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		#bird {
+			width: 100vw;
+			height: 100vh;
+		}
+
+		#bird img {
+			width: 300px;
+			transition: all 5s;
+			position: relative;
+
+
+		}
+
+		#bd1 {
+			position: relative;
+			width: 400px;
+			
+			float: right;
+			transform: rotateY(180deg);
+            display: none;
+		}
+
+		#btn1 {
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			top: 400px;
+		}
+
+		#btn2 {
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			top: 400px;
+			left: 1308px;
+
+		}
+	</style>
+</head>
+
+<body>
+	<div id="bird">
+		<button id="btn1" onclick="right()">></button>
+
+		<img src="b.gif" id="bd1">
+		<img src="b.gif" id="bd2">
+
+		<button id="btn2" onclick="left()"><
+		</button>
+	</div>
+
+	<script>
+
+
+
+		function right() {
+			var elem = document.getElementById("bd2");
+			var pos = 0;
+			var id = setInterval(frame, 1);
+			function frame() {
+				if (pos == 1050) {
+					clearInterval(id);
+					// document.getElementById("bd1").style.display = "block";
+				} else {
+					document.getElementById("bd1").style.display = "none";
+					document.getElementById("bd2").style.display = "block";
+					pos++;
+					// elem.style.top = pos + "px";
+					elem.style.left = pos + "px";
+				}
+			}
+		}
+
+		function left() {
+			var elem = document.getElementById("bd1");
+			var pos = 0;
+			var id = setInterval(frame, 1);
+			function frame() {
+				if (pos == 1050) {
+					clearInterval(id);
+					// elem.style.display = "none";
+				} else {
+					// elem.style.display = "block";
+					
+					document.getElementById("bd1").style.display = "block";
+					document.getElementById("bd2").style.display = "none";
+					pos++;
+					// elem.style.top = pos + "px";
+					elem.style.right = pos + "px";
+				}
+			}
+
+		}
+
+
+	</script>
+</body>
+
+</html>
